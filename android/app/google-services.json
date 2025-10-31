@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105836744617",
+    "project_id": "completequiz-8c9aa",
+    "storage_bucket": "completequiz-8c9aa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105836744617:android:d28d4c80163ec42bd9beb8",
+        "android_client_info": {
+          "package_name": "com.example.complete_quiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSccvB-GChkDOmRuv7wiHOhYuFPxxlXcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

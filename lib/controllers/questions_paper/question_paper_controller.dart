@@ -1,0 +1,58 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:complete_quiz/controllers/auth_controller.dart';
+import 'package:complete_quiz/firebase/references.dart';
+import 'package:complete_quiz/models/question_paper_models.dart';
+import 'package:complete_quiz/services/firebase_storge_service.dart';
+import 'package:get/get.dart';
+
+class QuestionPapaerController extends GetxController {
+  final allPaperImages = <String>[].obs;
+  final allpapers = <QuestionPaperModel>[].obs;
+
+  @override
+  void onReady() {
+    getAllPapers();
+    super.onReady();
+  }
+
+  Future<void> getAllPapers() async {
+    List<String> imgName = ["biology", "chemistry", "maths", "physics"];
+    try {
+      QuerySnapshot<Map<String, dynamic>> data = await questionPaperRF.get();
+      final paperList = data.docs
+          .map((paper) => QuestionPaperModel.fromSnapshot(paper))
+          .toList();
+      allpapers.assignAll((paperList));
+      for (var paper in paperList) {
+        final imgUrl = await Get.find<FirebaseStorageService>().getImage(
+          paper.title,
+        );
+        paper.imageUrl = imgUrl!;
+        //allPaperImages.add(imgUrl!);
+      }
+      allpapers.assignAll(paperList);
+    } catch (e) {
+      //AppLogger.e(e);
+      print(e);
+    }
+  }
+
+  void navigateToQuestions({
+    required QuestionPaperModel paper,
+    bool tryAgain = false,
+  }) {
+    AuthController _authController = Get.find();
+    if (_authController.isLoggedIn()) {
+      if (tryAgain) {
+        Get.back();
+        //Get.offNames();
+      } else {
+        print("logged in");
+        //Get.toNamed();
+      }
+    } else {
+      print("the title is  ${paper.title}");
+      _authController.showLoginAlertDialogue();
+    }
+  }
+}
