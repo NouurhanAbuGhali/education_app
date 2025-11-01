@@ -82,7 +82,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                               itemBuilder: (BuildContext context, int index) {
                                 return QuestionCard(
                                   model:
-                                      _questionPaperController.allpapers[index],
+                                      _questionPaperController.allPapers[index],
                                 );
                               },
                               separatorBuilder:
@@ -90,7 +90,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                                     return const SizedBox(height: 20);
                                   },
                               itemCount:
-                                  _questionPaperController.allpapers.length,
+                                  _questionPaperController.allPapers.length,
                             ),
                           ),
                         ),

@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 
 class AppRoutes {
   static List<GetPage> routes() => [
-    GetPage(name: "/", page: () => SplashScreen()),
+    GetPage(name: "/", page: () => const SplashScreen()),
     GetPage(
-      name: "/introduction",
-      page: () => AppIntroductionScreen(),
+      name: "/introduction ",
+      page: () => const AppIntroductionScreen(),
       // binding: BindingsBuilder(() {
       //   Get.put(QuestionPapaerController());
       // }),

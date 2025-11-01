@@ -63,6 +63,7 @@ class AuthController extends GetxController {
     //AppLogger.d('Sign out');
     try {
       await _auth.signOut();
+      Future.delayed(Duration(seconds: 2));
       navigateToHomePage();
     } on FirebaseAuthException catch (e) {
       // AppLogger.e(e);

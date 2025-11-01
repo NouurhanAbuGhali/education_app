@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 class QuestionPapaerController extends GetxController {
   final allPaperImages = <String>[].obs;
-  final allpapers = <QuestionPaperModel>[].obs;
+  final allPapers = <QuestionPaperModel>[].obs;
 
   @override
   void onReady() {
@@ -22,7 +22,7 @@ class QuestionPapaerController extends GetxController {
       final paperList = data.docs
           .map((paper) => QuestionPaperModel.fromSnapshot(paper))
           .toList();
-      allpapers.assignAll((paperList));
+      allPapers.assignAll((paperList));
       for (var paper in paperList) {
         final imgUrl = await Get.find<FirebaseStorageService>().getImage(
           paper.title,
@@ -30,7 +30,7 @@ class QuestionPapaerController extends GetxController {
         paper.imageUrl = imgUrl!;
         //allPaperImages.add(imgUrl!);
       }
-      allpapers.assignAll(paperList);
+      allPapers.assignAll(paperList);
     } catch (e) {
       //AppLogger.e(e);
       print(e);

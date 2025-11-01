@@ -52,18 +52,18 @@ class DataUpLoader extends GetxController {
         "question_count": paper.questions == null ? 0 : paper.questions!.length,
       });
       for (var questions in paper.questions!) {
-        final questionsPAth = questionRF(
+        final questionsPath = questionRF(
           paperId: paper.id,
           questionId: questions.id!,
         );
-        batch.set(questionsPAth, {
-          "Questions": questions.question,
+        batch.set(questionsPath, {
+          "questions": questions.question,
           "correct_answer": questions.correctAnswer,
         });
 
         for (var answer in questions.answers!) {
           batch.set(
-            questionsPAth.collection("answers").doc(answer.identifier),
+            questionsPath.collection("answers").doc(answer.identifier),
             {"identifier": answer.identifier, "answer": answer.answer},
           );
         }
