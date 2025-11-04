@@ -4,7 +4,7 @@ class QuestionPaperModel {
   String id;
   String title;
   String imageUrl;
-  String description;
+  String Description;
   int timeSeconds;
   List<Questions>? questions;
   int questionCount;
@@ -13,7 +13,7 @@ class QuestionPaperModel {
     required this.id,
     required this.title,
     required this.imageUrl,
-    required this.description,
+    required this.Description,
     required this.timeSeconds,
     required this.questionCount,
     this.questions,
@@ -23,7 +23,7 @@ class QuestionPaperModel {
     : id = json['id'] as String,
       title = json['title'] as String,
       imageUrl = json['image_url'] as String,
-      description = json['Description'] as String,
+      Description = json['Description'] as String,
       timeSeconds = json['time_seconds'],
       questionCount = 0,
 
@@ -36,7 +36,7 @@ class QuestionPaperModel {
     : id = json.id,
       title = json['title'],
       imageUrl = json['image_url'],
-      description = json['Description'],
+      Description = json['Description'],
       timeSeconds = json['time_seconds'],
       questionCount = json["question_count"] as int,
       questions = [];
@@ -52,7 +52,7 @@ class QuestionPaperModel {
     data['id'] = this.id;
     data['title'] = this.title;
     data['image_url'] = this.imageUrl;
-    data['Description'] = this.description;
+    data['Description'] = this.Description;
     data['time_seconds'] = this.timeSeconds;
     return data;
   }
