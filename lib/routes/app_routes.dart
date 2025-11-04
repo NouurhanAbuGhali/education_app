@@ -8,16 +8,16 @@ import 'package:get/get.dart';
 
 class AppRoutes {
   static List<GetPage> routes() => [
-    GetPage(name: "/", page: () => const SplashScreen()),
+    GetPage(name: "/", page: () => SplashScreen()),
     GetPage(
-      name: "/introduction ",
-      page: () => const AppIntroductionScreen(),
+      name: AppIntroductionScreen.routeName,
+      page: () => AppIntroductionScreen(),
       // binding: BindingsBuilder(() {
       //   Get.put(QuestionPapaerController());
       // }),
     ),
     GetPage(
-      name: "/home",
+      name: HomeScreen.routeName,
       page: () => const HomeScreen(),
       binding: BindingsBuilder(() {
         Get.put(QuestionPapaerController());

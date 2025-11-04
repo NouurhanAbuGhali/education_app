@@ -6,9 +6,9 @@ const Color primaryColorDark = Color(0xFF99ace1);
 const Color mainTextColorDark = Colors.white;
 
 class DarkTheme with SubThemeData {
-  ThemeData buildDarktheme() {
-    final ThemeData systemDrakTheme = ThemeData.dark();
-    return systemDrakTheme.copyWith(
+  ThemeData buildDarkTheme() {
+    final ThemeData systemDarkTheme = ThemeData.dark();
+    return systemDarkTheme.copyWith(
       iconTheme: getIconTheme(),
       textTheme: getTextThemes().apply(
         bodyColor: mainTextColorDark,

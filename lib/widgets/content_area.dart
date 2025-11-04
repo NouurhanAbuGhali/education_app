@@ -2,8 +2,8 @@ import 'package:complete_quiz/configs/themes/app_colors.dart';
 import 'package:complete_quiz/configs/themes/ui_parameter.dart';
 import 'package:flutter/material.dart';
 
-class ContentAread extends StatelessWidget {
-  const ContentAread({super.key, this.addPadding = true, required this.child});
+class ContentArea extends StatelessWidget {
+  const ContentArea({super.key, this.addPadding = true, required this.child});
 
   final bool addPadding;
   final Widget child;

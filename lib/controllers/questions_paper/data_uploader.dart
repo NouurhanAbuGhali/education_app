@@ -32,6 +32,10 @@ class DataUpLoader extends GetxController {
         )
         .toList();
     print(paperInAssets);
+    print(
+      "step number two *****************************************************************",
+    );
+
     List<QuestionPaperModel> questionPapers = [];
     for (var paper in paperInAssets) {
       String StringPaperContent = await rootBundle.loadString(paper);

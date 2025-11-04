@@ -1,5 +1,6 @@
 import 'package:complete_quiz/firebase/references.dart';
 import 'package:complete_quiz/screens/home/home_screen.dart';
+import 'package:complete_quiz/screens/introduction/introduction.dart';
 import 'package:complete_quiz/screens/login/login_screen.dart';
 import 'package:complete_quiz/widgets/dialogs/dialogs_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,6 +21,9 @@ class AuthController extends GetxController {
   void initAuth() async {
     await Future.delayed(Duration(seconds: 2));
     _auth = FirebaseAuth.instance;
+    print(
+      "step number one *****************************************************************",
+    );
     _authStateChanges = _auth.authStateChanges();
     _authStateChanges.listen((User? user) {
       _user.value = user;
@@ -75,7 +79,7 @@ class AuthController extends GetxController {
   }
 
   void navigateToIntroduction() {
-    Get.offAllNamed("/introduction");
+    Get.offAllNamed(AppIntroductionScreen.routeName);
   }
 
   void showLoginAlertDialogue() {

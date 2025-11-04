@@ -36,7 +36,9 @@ class QuestionCard extends GetView<QuestionPapaerController> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: ColoredBox(
-                      color: Theme.of(context).primaryColor.withOpacity(.2),
+                      color: Theme.of(
+                        context,
+                      ).primaryColor.withValues(alpha: 0.1),
                       child: SizedBox(
                         height: Get.width * .15,
                         width: Get.width * .15,
@@ -66,7 +68,7 @@ class QuestionCard extends GetView<QuestionPapaerController> {
                           children: [
                             AppIconText(
                               icon: Icon(
-                                Icons.help_outline,
+                                Icons.help_outline_outlined,
                                 color: Get.isDarkMode
                                     ? Colors.white
                                     : Theme.of(context).primaryColor,
@@ -76,16 +78,14 @@ class QuestionCard extends GetView<QuestionPapaerController> {
                                 style: detailsText.copyWith(
                                   color: Get.isDarkMode
                                       ? Colors.white
-                                      : Theme.of(
-                                          context,
-                                        ).primaryColor.withOpacity(.3),
+                                      : Theme.of(context).primaryColor,
                                 ),
                               ),
                             ),
                             SizedBox(width: 15),
                             AppIconText(
                               icon: Icon(
-                                Icons.help_outline,
+                                Icons.timer,
                                 color: Get.isDarkMode
                                     ? Colors.white
                                     : Theme.of(context).primaryColor,

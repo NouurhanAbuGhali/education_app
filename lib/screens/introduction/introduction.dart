@@ -1,11 +1,13 @@
 import 'package:complete_quiz/configs/themes/app_colors.dart';
+import 'package:complete_quiz/controllers/auth_controller.dart';
 import 'package:complete_quiz/widgets/app_circle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppIntroductionScreen extends StatelessWidget {
-  const AppIntroductionScreen({super.key});
-
+  AppIntroductionScreen({super.key});
+  AuthController _authController = Get.find();
+  static const String routeName = "/introduction";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +33,9 @@ class AppIntroductionScreen extends StatelessWidget {
               SizedBox(height: 40),
               AppCircleButton(
                 child: const Icon(Icons.arrow_forward),
-                onTap: () {},
+                onTap: () {
+                  _authController.navigateToHomePage();
+                },
               ),
             ],
           ),

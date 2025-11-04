@@ -26,11 +26,13 @@ class QuestionPaperModel {
       description = json['Description'] as String,
       timeSeconds = json['time_seconds'],
       questionCount = 0,
+
       questions = (json["questions"] as List)
           .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
           .toList();
 
   QuestionPaperModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
+    // : id = json["id"] as String,
     : id = json.id,
       title = json['title'],
       imageUrl = json['image_url'],
@@ -39,7 +41,11 @@ class QuestionPaperModel {
       questionCount = json["question_count"] as int,
       questions = [];
 
-  String timeInMinits() => "${(timeSeconds / 30).ceil()} min";
+  // questions = (json["questions"] as List)
+  //     .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
+  //     .toList();
+
+  String timeInMinits() => "${(timeSeconds / 60).ceil()} mins";
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

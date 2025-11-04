@@ -18,11 +18,16 @@ class QuestionPapaerController extends GetxController {
   Future<void> getAllPapers() async {
     List<String> imgName = ["biology", "chemistry", "maths", "physics"];
     try {
+      // for (var img in imgName) {
+      //   final imgUrl = await Get.find<FirebaseStorageService>().getImage(img);
+      //   allPaperImages.add(imgUrl!);}
+
       QuerySnapshot<Map<String, dynamic>> data = await questionPaperRF.get();
       final paperList = data.docs
           .map((paper) => QuestionPaperModel.fromSnapshot(paper))
           .toList();
       allPapers.assignAll((paperList));
+      ////////////
       for (var paper in paperList) {
         final imgUrl = await Get.find<FirebaseStorageService>().getImage(
           paper.title,
