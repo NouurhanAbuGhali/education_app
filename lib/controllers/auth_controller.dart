@@ -32,22 +32,33 @@ class AuthController extends GetxController {
   }
 
   Future<void> signInWithGoogle() async {
-    final GoogleSignIn _googleSignIn = GoogleSignIn();
-    try {
-      GoogleSignInAccount? account = await _googleSignIn.signIn();
-      if (account != null) {
-        final _authAccount = await account.authentication;
-        final _credential = GoogleAuthProvider.credential(
-          idToken: _authAccount.idToken,
-          accessToken: _authAccount.accessToken,
-        );
-        await _auth.signInWithCredential(_credential);
-        await saveUser(account);
-        navigateToHomePage();
-      }
-    } on Exception catch (error) {
-      //AppLogger.e(error);
-    }
+    navigateToHomePage();
+    // final GoogleSignIn googleSignIn = GoogleSignIn();
+    // print("///////////////////////step number one");
+    // try {
+    //   GoogleSignInAccount? account = await googleSignIn.signIn();
+    //   print("///////////////////////step number two");
+    //
+    //   if (account != null) {
+    //     final authAccount = await account.authentication;
+    //     final credential = GoogleAuthProvider.credential(
+    //       idToken: authAccount.idToken,
+    //       accessToken: authAccount.accessToken,
+    //     );
+    //     print("///////////////////////step number three");
+    //
+    //     await _auth.signInWithCredential(credential);
+    //     await saveUser(account);
+    //     print("///////////////////////step number four");
+    //]
+    //     navigateToHomePage();
+    //   } else {
+    //     print("nullll///////////////////////////////");
+    //     return null;
+    //   }
+    // } on Exception catch (error) {
+    //   //AppLogger.e(error);
+    // }
   }
 
   User? getUser() {

@@ -15,6 +15,13 @@ class MyZoomDrawerController extends GetxController {
 
   void toogleDrawer() {
     zoomDrawerController.toggle?.call();
+
+    update();
+  }
+
+  void toogleCloseDrawer() {
+    zoomDrawerController.toggle?.call();
+
     update();
   }
 

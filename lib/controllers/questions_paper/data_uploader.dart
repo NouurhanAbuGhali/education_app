@@ -51,7 +51,7 @@ class DataUpLoader extends GetxController {
       batch.set(questionPaperRF.doc(paper.id), {
         'title': paper.title,
         'image_url': paper.imageUrl,
-        "description": paper.description,
+        "Description": paper.Description,
         "time_seconds": paper.timeSeconds,
         "question_count": paper.questions == null ? 0 : paper.questions!.length,
       });

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:complete_quiz/configs/themes/custem_test_style.dart';
+import 'package:complete_quiz/configs/themes/app_icons.dart';
+import 'package:complete_quiz/configs/themes/custom_text_style.dart';
 import 'package:complete_quiz/configs/themes/ui_parameter.dart';
 import 'package:complete_quiz/controllers/questions_paper/question_paper_controller.dart';
 import 'package:complete_quiz/models/question_paper_models.dart';
@@ -62,7 +63,7 @@ class QuestionCard extends GetView<QuestionPapaerController> {
                         Text(model.title, style: cartTitle(context)),
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0, bottom: 15),
-                          child: Text(model.description),
+                          child: Text(model.Description),
                         ),
                         Row(
                           children: [
@@ -114,7 +115,7 @@ class QuestionCard extends GetView<QuestionPapaerController> {
                 child: GestureDetector(
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                    child: Icon(Icons.wine_bar),
+                    child: Icon(AppIcons.trophyOutLine),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(cardBorderRadius),

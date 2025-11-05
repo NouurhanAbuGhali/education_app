@@ -28,54 +28,56 @@ class MenuScreen extends GetView<MyZoomDrawerController> {
                 child: BackButton(
                   color: Colors.white,
                   onPressed: () {
-                    controller.toogleDrawer();
+                    controller.toogleCloseDrawer();
                   },
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  right: MediaQuery.of(context).size.width * 0.3,
-                ),
-                child: Column(
-                  children: [
-                    Obx(
-                      () => controller.user.value == null
-                          ? const SizedBox()
-                          : Text(
-                              controller.user.value!.displayName ?? " ",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w900,
-                                fontSize: 18,
-                                color: onSurfaceTextColor,
+              Positioned(
+                top: 8,
+                left: 2,
+                bottom: 0,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    right: MediaQuery.of(context).size.width,
+                  ),
+                  child: Column(
+                    children: [
+                      Obx(
+                        () => controller.user.value == null
+                            ? const SizedBox()
+                            : Text(
+                                controller.user.value!.displayName ?? " ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 18,
+                                  color: onSurfaceTextColor,
+                                ),
                               ),
-                            ),
-                    ),
-                    const Spacer(flex: 1),
-                    _DreamButton(
-                      icon: Icons.web,
-                      label: "website",
-                      onPressed: () => controller.website(),
-                    ),
-                    _DreamButton(
-                      icon: Icons.facebook,
-                      label: "facebook",
-                      onPressed: () => controller.facebook(),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
-                      child: _DreamButton(
+                      ),
+                      const Spacer(),
+                      _DreamButton(
+                        icon: Icons.web,
+                        label: "website",
+                        onPressed: () => controller.website(),
+                      ),
+                      _DreamButton(
+                        icon: Icons.facebook,
+                        label: "facebook",
+                        onPressed: () => controller.facebook(),
+                      ),
+                      _DreamButton(
                         icon: Icons.email,
                         label: "email",
                         onPressed: () => controller.email(),
                       ),
-                    ),
-                    const Spacer(flex: 4),
-                    _DreamButton(
-                      icon: Icons.logout,
-                      label: "logout",
-                      onPressed: () => controller.signOut(),
-                    ),
-                  ],
+                      const Spacer(flex: 4),
+                      _DreamButton(
+                        icon: Icons.logout,
+                        label: "logout",
+                        onPressed: () => controller.signOut(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -93,15 +95,17 @@ class _DreamButton extends StatelessWidget {
     required this.label,
     this.onPressed,
   });
+
   final IconData icon;
   final String label;
   final VoidCallback? onPressed;
+
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
+    return ElevatedButton.icon(
       onPressed: onPressed,
-      icon: Icon(icon, size: 15),
       label: Text(label),
+      icon: Icon(icon, size: 15),
     );
   }
 }
