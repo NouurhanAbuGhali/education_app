@@ -23,7 +23,7 @@ class QuestionCard extends GetView<QuestionPapaerController> {
       ),
       child: InkWell(
         onTap: () {
-          controller.navigateToQuestions(paper: model);
+          controller.navigateToQuestions(paper: model, tryAgain: true);
           // print("${model.title}");
         },
         child: Padding(
@@ -98,7 +98,7 @@ class QuestionCard extends GetView<QuestionPapaerController> {
                                       ? Colors.white
                                       : Theme.of(
                                           context,
-                                        ).primaryColor.withOpacity(.3),
+                                        ).primaryColor.withValues(alpha: .5),
                                 ),
                               ),
                             ),

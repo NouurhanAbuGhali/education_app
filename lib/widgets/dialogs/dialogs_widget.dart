@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Dialogs {
@@ -18,15 +17,9 @@ class Dialogs {
         children: [
           Text(
             "Hi ....",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
           ),
-          Text(
-            "Please login beford you start",
-            style: TextStyle(),
-          )
+          Text("Please login before you start", style: TextStyle()),
         ],
       ),
       actions: [TextButton(onPressed: onTap, child: Text("Confirm"))],

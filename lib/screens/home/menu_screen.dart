@@ -38,7 +38,7 @@ class MenuScreen extends GetView<MyZoomDrawerController> {
                 bottom: 0,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    right: MediaQuery.of(context).size.width,
+                    right: MediaQuery.of(context).size.width * 0.3,
                   ),
                   child: Column(
                     children: [
@@ -54,7 +54,7 @@ class MenuScreen extends GetView<MyZoomDrawerController> {
                                 ),
                               ),
                       ),
-                      const Spacer(),
+                      const Spacer(flex: 1),
                       _DreamButton(
                         icon: Icons.web,
                         label: "website",
@@ -65,10 +65,13 @@ class MenuScreen extends GetView<MyZoomDrawerController> {
                         label: "facebook",
                         onPressed: () => controller.facebook(),
                       ),
-                      _DreamButton(
-                        icon: Icons.email,
-                        label: "email",
-                        onPressed: () => controller.email(),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0),
+                        child: _DreamButton(
+                          icon: Icons.email,
+                          label: "email",
+                          onPressed: () => controller.email(),
+                        ),
                       ),
                       const Spacer(flex: 4),
                       _DreamButton(
@@ -102,7 +105,7 @@ class _DreamButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
+    return TextButton.icon(
       onPressed: onPressed,
       label: Text(label),
       icon: Icon(icon, size: 15),
