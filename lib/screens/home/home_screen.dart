@@ -18,7 +18,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
 
   @override
   Widget build(BuildContext context) {
-    QuestionPapaerController _questionPaperController = Get.find();
+    QuestionPaperController _questionPaperController = Get.find();
     return Container(
       decoration: BoxDecoration(gradient: mainGradient()),
       child: Scaffold(

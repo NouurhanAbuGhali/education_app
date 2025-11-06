@@ -8,7 +8,7 @@ import 'package:complete_quiz/widgets/app_icon_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class QuestionCard extends GetView<QuestionPapaerController> {
+class QuestionCard extends GetView<QuestionPaperController> {
   const QuestionCard({super.key, required this.model});
 
   final QuestionPaperModel model;

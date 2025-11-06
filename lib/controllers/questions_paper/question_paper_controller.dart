@@ -6,7 +6,7 @@ import 'package:complete_quiz/screens/question/question_screen.dart';
 import 'package:complete_quiz/services/firebase_storge_service.dart';
 import 'package:get/get.dart';
 
-class QuestionPapaerController extends GetxController {
+class QuestionPaperController extends GetxController {
   final allPaperImages = <String>[].obs;
   final allPapers = <QuestionPaperModel>[].obs;
 

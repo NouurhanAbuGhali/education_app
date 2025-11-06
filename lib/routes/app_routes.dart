@@ -21,7 +21,7 @@ class AppRoutes {
       name: HomeScreen.routeName,
       page: () => const HomeScreen(),
       binding: BindingsBuilder(() {
-        Get.put(QuestionPapaerController());
+        Get.put(QuestionPaperController());
         Get.put(MyZoomDrawerController());
       }),
     ),
