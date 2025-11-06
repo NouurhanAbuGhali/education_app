@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:complete_quiz/controllers/auth_controller.dart';
 import 'package:complete_quiz/firebase/references.dart';
 import 'package:complete_quiz/models/question_paper_models.dart';
+import 'package:complete_quiz/screens/question/question_screen.dart';
 import 'package:complete_quiz/services/firebase_storge_service.dart';
 import 'package:get/get.dart';
 
@@ -53,6 +54,7 @@ class QuestionPapaerController extends GetxController {
         //Get.offNames();
       } else {
         print("logged in");
+        Get.toNamed(QuestionScreen.routeName, arguments: paper);
         //Get.toNamed();
       }
     } else {

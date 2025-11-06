@@ -32,32 +32,34 @@ class AuthController extends GetxController {
   }
 
   Future<void> signInWithGoogle() async {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    try {
-      print("///////////////////////step number one");
-      GoogleSignInAccount? account = await googleSignIn.signIn();
-      print("///////////////////////step number two");
-
-      if (account != null) {
-        final authAccount = await account.authentication;
-        final credential = GoogleAuthProvider.credential(
-          idToken: authAccount.idToken,
-          accessToken: authAccount.accessToken,
-        );
-        print("///////////////////////step number three");
-
-        await _auth.signInWithCredential(credential);
-        await saveUser(account);
-        print("///////////////////////step number four");
-
-        navigateToHomePage();
-      } else {
-        print("nullll///////////////////////////////");
-        return null;
-      }
-    } on Exception catch (error) {
-      //AppLogger.e(error);
-    }
+    navigateToHomePage();
+    // final GoogleSignIn googleSignIn = GoogleSignIn.instance;
+    // try {
+    //   print("///////////////////////step number one");
+    //   GoogleSignInAccount? account = await googleSignIn.signIn();
+    //   print("///////////////////////step number two");
+    //
+    //   if (account != null) {
+    //     final authAccount = await account.authentication;
+    //     final credential = GoogleAuthProvider.credential(
+    //       idToken: authAccount.idToken,
+    //       accessToken: authAccount.accessToken,
+    //     );
+    //     print("///////////////////////step number three");
+    //
+    //     await _auth.signInWithCredential(credential);
+    //     await saveUser(account);
+    //     print("///////////////////////step number four");
+    //
+    //     navigateToHomePage();
+    //   } else {
+    //     print("nullll///////////////////////////////");
+    //     return null;
+    //   }
+    // } on Exception catch (error) {
+    //   print("error  $error //////////////////////////////////////////////////");
+    //   //AppLogger.e(error);
+    // }
   }
 
   User? getUser() {
