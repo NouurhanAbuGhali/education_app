@@ -27,6 +27,16 @@ class QuestionController extends GetxController {
           .map((snapshot) => Questions.fromSnapshot(snapshot))
           .toList();
       questionPaper.questions = questions;
+      for (Questions _question in questionPaper.questions!) {
+        final QuerySnapshot<Map<String, dynamic>> answerQuery =
+            await questionPaperRF
+                .doc(questionPaper.id)
+                .collection("questions")
+                .doc(_question.id)
+                .collection("answers")
+                .get();
+        print(answerQuery);
+      }
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());

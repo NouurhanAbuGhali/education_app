@@ -48,7 +48,8 @@ class QuestionPaperController extends GetxController {
     bool tryAgain = false,
   }) {
     AuthController _authController = Get.find();
-    if (_authController.isLoggedIn()) {
+    // if (_authController.isLoggedIn()) {
+    if (true) {
       if (tryAgain) {
         Get.back();
         //Get.offNames();
